@@ -9,8 +9,9 @@ namespace SimpleTestApi.Controllers
     {
         private static List<User> _user = new List<User>
         {
-            new User { Id = 1, Name = "Laptop", Email = "abc@gmail.com", Address="Lko" },
-            new User { Id = 2, Name = "Mouse", Email = "abc@gmail.com", Address="Agra" }
+            new User { Id = 1, Name = "Laptop", Email = "Laptop@gmail.com", Address="Lko" },
+            new User { Id = 2, Name = "Mouse", Email = "Mouse@gmail.com", Address="Agra" },
+            new User { Id = 3, Name = "Keyboard", Email = "Keyboard@gmail.com", Address="Kanpur" }
         };
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
