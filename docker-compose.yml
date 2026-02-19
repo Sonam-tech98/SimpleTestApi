@@ -1,0 +1,6 @@
+services:
+  simpletestapi:
+    image: ${DOCKER_REGISTRY-}simpletestapi
+    build:
+      context: .
+      dockerfile: SimpleTestApi/Dockerfile
