@@ -9,7 +9,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
     {
-        Title = "My API",
+        Title = "SimpleTestApi",
         Version = "v1"
     });
 });
@@ -25,7 +25,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SimpleTestApi");
 });
 //app.UseHttpsRedirection();
 
