@@ -6,8 +6,9 @@ namespace SimpleTestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DummyController : ControllerBase
+    public class DummyController(IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
+        private readonly IHttpContextAccessor _httpClientFactory = httpContextAccessor;
         private static List<Product> _products = new List<Product>
         {
             new Product { Id = 1, Name = "Laptop", Price = 999.99m },
@@ -27,7 +28,9 @@ namespace SimpleTestApi.Controllers
         {
             var product = _products.FirstOrDefault(p => p.Id == id);
             if (product == null) return NotFound("Product not found.");
-            return Ok(product);
+            var userIpAddress = _httpClientFactory.HttpContext.Connection.RemoteIpAddress;
+            userIpAddress = userIpAddress.MapToIPv4();
+            return Ok(new { product, IP = userIpAddress.ToString() });
         }
 
     
