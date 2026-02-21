@@ -28,10 +28,10 @@ namespace SimpleTestApi.Controllers
         {
             var product = _products.FirstOrDefault(p => p.Id == id);
             if (product == null) return NotFound("Product not found.");
-            var userIpAddress =HttpContext.Connection.RemoteIpAddress?.ToString();
+            var userIpAddress =HttpContext.Connection.RemoteIpAddress;
            // var forwarded = HttpContext.Request.Headers["X-Forwarded-For"].ToString();
-            // userIpAddress = userIpAddress.MapToIPv4();
-            return Ok(new { product, IP = userIpAddress });
+            var IPV4 = userIpAddress.MapToIPv4();
+            return Ok(new { product, IP = userIpAddress, IP2= IPV4 });
         }
 
     
