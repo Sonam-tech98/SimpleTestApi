@@ -31,7 +31,7 @@ namespace SimpleTestApi.Controllers
             var userIpAddress =HttpContext.Connection.RemoteIpAddress;
            // var forwarded = HttpContext.Request.Headers["X-Forwarded-For"].ToString();
             var IPV4 = userIpAddress.MapToIPv4();
-            return Ok(new { product, IP = userIpAddress, IP2= IPV4 });
+            return Ok(new { product, IP = userIpAddress.ToString(), IP2= IPV4.ToString() });
         }
 
     
