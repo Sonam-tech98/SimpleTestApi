@@ -29,8 +29,9 @@ namespace SimpleTestApi.Controllers
             var product = _products.FirstOrDefault(p => p.Id == id);
             if (product == null) return NotFound("Product not found.");
             var userIpAddress =HttpContext.Connection.RemoteIpAddress?.ToString();
+           // var forwarded = HttpContext.Request.Headers["X-Forwarded-For"].ToString();
             // userIpAddress = userIpAddress.MapToIPv4();
-            return Ok(new { product, IP = userIpAddress});
+            return Ok(new { product, IP = userIpAddress });
         }
 
     
