@@ -29,7 +29,7 @@ namespace SimpleTestApi.Controllers
             if (product == null) return NotFound("Product not found.");
             var userIpAddress =HttpContext.Connection.RemoteIpAddress;
             var IPV4 = userIpAddress.MapToIPv4();
-            return Ok(new { product, IP = userIpAddress.ToString(), IP2= IPV4.ToString() });
+            return Ok(new { product, IPv6 = userIpAddress.ToString(), IPv4= IPV4.ToString() });
         }
 
     

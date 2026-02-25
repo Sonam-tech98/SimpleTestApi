@@ -27,15 +27,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 });
 var app = builder.Build();
 app.UseForwardedHeaders();
-app.MapGet("/", (HttpContext context) =>
-    $"Real IP: {context.Connection.RemoteIpAddress}");
 
-//// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
