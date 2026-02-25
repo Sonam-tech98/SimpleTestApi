@@ -8,7 +8,6 @@ namespace SimpleTestApi.Controllers
     [ApiController]
     public class DummyController() : ControllerBase
     {
-       // private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
         private static List<Product> _products = new List<Product>
         {
             new Product { Id = 1, Name = "Laptop", Price = 999.99m },
@@ -29,7 +28,6 @@ namespace SimpleTestApi.Controllers
             var product = _products.FirstOrDefault(p => p.Id == id);
             if (product == null) return NotFound("Product not found.");
             var userIpAddress =HttpContext.Connection.RemoteIpAddress;
-           // var forwarded = HttpContext.Request.Headers["X-Forwarded-For"].ToString();
             var IPV4 = userIpAddress.MapToIPv4();
             return Ok(new { product, IP = userIpAddress.ToString(), IP2= IPV4.ToString() });
         }
